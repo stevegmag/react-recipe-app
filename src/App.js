@@ -4,13 +4,14 @@ import './App.css';
 import Form from "./components/Form";
 import Recipes from "./components/Recipes";
 
-const API_KEY = "Your-api-key";
+const API_KEY = "4b7320a0a92975c037489cf5dd0cf1ce" //stevegmag: "Your-api-key";
 
 class App extends Component {
   state = {
     recipes: []
   }
   getRecipe = async (e) => {
+    console.log('working');
     const recipeName = e.target.elements.recipeName.value;
     e.preventDefault();
     const api_call = await fetch(`https://cors-anywhere.herokuapp.com/http://food2fork.com/api/search?key=${API_KEY}&q=${recipeName}&count=10`);
