@@ -42,6 +42,11 @@ button:focus {
   font-weight: 500;
   margin-left: 0.7rem;
 }
+.recipe_buttons:active,
+.recipe_buttons:hover {
+  border: solid 2px green;
+  text-decoration: underline;
+}
 
 .recipes__box {
   background: #fff;
@@ -67,6 +72,12 @@ button:focus {
   text-transform: uppercase;
   font-weight: 600;
   font-size: 0.8rem;
+  letter-spacing: 2px;
+}
+.recipes__rank {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.65rem;
   letter-spacing: 2px;
 }
 
@@ -97,6 +108,11 @@ button:focus {
   text-transform: uppercase;
   font-weight: 500;
   margin-left: 0.7rem;
+}
+.form__button:active,
+.form__button:hovber {
+  border: solid 2px green;
+  background: transparent;
 }
 
 input[type="text"] { 

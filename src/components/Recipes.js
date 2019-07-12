@@ -7,7 +7,7 @@ const Recipes = props => (
     <div className="row">
     { props.recipes.map((recipe) => {
       return (
-        <div key={recipe.title} className="col-md-4" style={{ marginBottom:"2rem" }}>
+        <div key={recipe.recipe_id} className="col-md-4" style={{ marginBottom:"2rem" }}>
           <div className="recipes__box">
             <img 
               className="recipe__box-img" 
@@ -20,13 +20,30 @@ const Recipes = props => (
                 <p className="recipes__subtitle">Publisher: <span>
                   { recipe.publisher }
                 </span></p>
+                <p className="recipes__rank">Rank: <span>
+                  { Math.floor(recipe.social_rank) }
+                </span></p>
               </div>
-              <button className="recipe_buttons">
-                <Link to={{ 
-                  pathname: `/recipe/${recipe.recipe_id}`,
-                  state: { recipe: recipe.title }
-                }}>View Recipe</Link>
-              </button>
+                <Link 
+                  to={{ 
+                    pathname: `/recipe/${recipe.recipe_id}`,
+                    state: { recipe: recipe.recipe_id }
+                    // state: { recipe: recipe.title }
+                  }} 
+                  >
+                   <button className="recipe_buttons">View Recipe</button>  
+                  </Link>
+                  
+                  <Link 
+                  to={{ 
+                    //pathname: `/recipe/${recipe.recipe_id}`,
+                    pathname: `${recipe.source_url}`,
+                    state: { recipe: recipe.recipe_id }
+                  }} 
+                  target="_blank"
+                  >
+                   <button className="recipe_buttons">Recipe Source</button>  
+                  </Link>
           </div>
         </div>
       );
