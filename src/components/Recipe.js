@@ -6,16 +6,17 @@ const API_KEY = "4b7320a0a92975c037489cf5dd0cf1ce";
 
 class Recipe extends React.Component {
   state = {
-    activeRecipe: []
+    activeRecipe: [],
+    error: []
   }
   componentDidMount = async () => {
-    console.log('recipe:: ' + this.props.location.state.recipe);
+    console.log('prop recipe:: ' + this.props.location.state.recipe);
     const recipeID = this.props.location.state.recipe;
     const req = await fetch(`https://cors-anywhere.herokuapp.com/http://food2fork.com/api/get?key=${API_KEY}&rId=${recipeID}`);
     
     
     const res = await req.json();
-    console.log(res);
+    console.log('res:: ' + res);
     if(res.error) {
       this.setState({ error:  res.error});
     }
@@ -32,6 +33,7 @@ class Recipe extends React.Component {
     } //if
     else {
       const recipe = this.state.activeRecipe;
+      console.log('ind len:: ' + recipe);
       return (
         <div className="container">
           <div className="col-md-8 recipes__box">

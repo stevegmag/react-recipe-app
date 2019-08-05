@@ -15,6 +15,7 @@ const Recipes = props => (
               alt={recipe.title}/>
               <div className="recipe__text">
                 <h5 className="recipes__title">
+                {recipe.recipe_id}: 
                   { recipe.title.length < 20 ? `${recipe.title}` : `${recipe.title.substring(0, 25)}...` }
                 </h5>
                 <p className="recipes__subtitle">Publisher: <span>
@@ -27,7 +28,7 @@ const Recipes = props => (
                 <Link 
                   to={{ 
                     pathname: `/recipe/${recipe.recipe_id}`,
-                    state: { recipe: recipe.recipe_id }
+                    state: {recipe: recipe.recipe_id}
                     // state: { recipe: recipe.title }
                   }} 
                   >
@@ -38,7 +39,7 @@ const Recipes = props => (
                   to={{ 
                     //pathname: `/recipe/${recipe.recipe_id}`,
                     pathname: `${recipe.source_url}`,
-                    state: { recipe: recipe.recipe_id }
+                    state: {recipe: recipe.recipe_id}
                   }} 
                   target="_blank"
                   >
